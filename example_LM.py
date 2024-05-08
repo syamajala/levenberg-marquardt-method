@@ -2,7 +2,8 @@
 # nonlinear least squares curve-fitting problems.
 # https://people.duke.edu/~hpgavin/ce281/lm.pdf
     
-import numpy as np
+# import numpy as np
+import cunumeric as np
 import matplotlib.pyplot as plt
 import levenberg_marquardt as LM
 
@@ -66,8 +67,8 @@ def main(x,y,p_init):
     p_fit,Chi_sq,sigma_p,sigma_y,corr,R_sq,cvg_hst = LM.lm(p_init,x,y)
     
     # plot results of L-M least squares analysis
-    LM.make_lm_plots(x, y, cvg_hst)
-    
+    # LM.make_lm_plots(x, y, cvg_hst)
+
     return p_fit,Chi_sq,sigma_p,sigma_y,corr,R_sq,cvg_hst
     
 if __name__ == '__main__':

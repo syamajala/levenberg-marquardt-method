@@ -2,7 +2,8 @@
 # nonlinear least squares curve-fitting problems.
 # https://people.duke.edu/~hpgavin/ce281/lm.pdf
 
-import numpy as np
+# import numpy as np
+import cunumeric as np
 import seaborn as sns
 import matplotlib.pylab as pl
 import matplotlib.pyplot as plt
@@ -289,7 +290,7 @@ def lm(p,t,y_dat):
     X2_old = X2
     # initialize convergence history
     cvg_hst = np.ones((MaxIter,Npar+2))   
-    
+
     # -------- Start Main Loop ----------- #
     while not stop and iteration <= MaxIter:
         
@@ -386,8 +387,9 @@ def lm(p,t,y_dat):
         # update convergence history ... save _reduced_ Chi-square
         cvg_hst[iteration-1,0] = func_calls
         cvg_hst[iteration-1,1] = X2/DoF
-        
+
         for i in range(Npar):
+            # print(i)
             cvg_hst[iteration-1,i+2] = p.T[0][i]
 
         if ( max(abs(JtWdy)) < epsilon_1  and  iteration > 2 ):
